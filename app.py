@@ -427,7 +427,7 @@ st.markdown("---")
 if not df_hist.empty:
   df_daily = df_hist.groupby("date_only")["profit"].sum().reset_index()
 
-  # --- 2. HEATMAP CALENDAIRE ---
+# --- 2. HEATMAP CALENDAIRE ---
   st.markdown("### 📅 Calendrier & Heatmap des Gains Journaliers")
   if not df_daily.empty:
     hm_col1, hm_col2 = st.columns(2)
@@ -606,9 +606,8 @@ if not df_hist.empty:
           paper_bgcolor="#0E1117",
       )
 
-      # On applique les modifications hors du bloc update_layout
       fig_hm.update_layout(showlegend=False)
-      fig_hm.update_coloraxes(showscale=False)  # Enlève la barre de couleur verticale à droite
+      fig_hm.update_coloraxes(showscale=False)
 
       st.plotly_chart(fig_hm, use_container_width=True)
 
@@ -685,7 +684,10 @@ if not df_hist.empty:
             text=df_monthly_bar["text_label"], textposition="outside"
         )
         fig_hm.update_layout(
-            xaxis_title="Mois", yaxis_title="Profit (€)", height=400
+            xaxis_title="Mois",
+            yaxis_title="Profit (€)",
+            height=400,
+            coloraxis_showscale=False,
         )
         st.plotly_chart(fig_hm, use_container_width=True)
     else:
@@ -721,6 +723,7 @@ if not df_hist.empty:
             xaxis_title="Année",
             yaxis_title="Profit (€)",
             height=400,
+            coloraxis_showscale=False,
         )
         st.plotly_chart(fig_hm, use_container_width=True)
 
