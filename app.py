@@ -521,7 +521,6 @@ if not df_hist.empty:
           axis=1,
       )
 
-
       def make_calendar_text(row):
         d = row["date_dt"].day
         p = row["profit"]
@@ -530,7 +529,6 @@ if not df_hist.empty:
         else:
           pct = row["return_pct"]
           return f"<b>{d}</b><br>{p:+.1f}€<br>({pct:+.2f}%)"
-
 
       df_cal_month["cell_text"] = df_cal_month.apply(
           make_calendar_text, axis=1
@@ -595,24 +593,24 @@ if not df_hist.empty:
               ygap=3,
           )
       )
-     fig_hm.update_layout(
-    title=(
-        "Calendrier Journalier -"
-        f" {month_names.get(sel_month, sel_month)} {sel_year}"
-    ),
-    xaxis_title="Jours de la semaine",
-    yaxis_title="",
-    yaxis=dict(autorange="reversed"),
-    height=480,
-    plot_bgcolor="#161616",
-    paper_bgcolor="#0E1117",
-)
+      fig_hm.update_layout(
+          title=(
+              "Calendrier Journalier -"
+              f" {month_names.get(sel_month, sel_month)} {sel_year}"
+          ),
+          xaxis_title="Jours de la semaine",
+          yaxis_title="",
+          yaxis=dict(autorange="reversed"),
+          height=480,
+          plot_bgcolor="#161616",
+          paper_bgcolor="#0E1117",
+      )
 
-# On applique les modifications hors du bloc update_layout
-fig_hm.update_layout(showlegend=False)
-fig_hm.update_coloraxes(showscale=False)  # Enlève la barre de couleur verticale à droite
+      # On applique les modifications hors du bloc update_layout
+      fig_hm.update_layout(showlegend=False)
+      fig_hm.update_coloraxes(showscale=False)  # Enlève la barre de couleur verticale à droite
 
-st.plotly_chart(fig_hm, use_container_width=True)
+      st.plotly_chart(fig_hm, use_container_width=True)
 
     elif granularity == "Tous les mois de l'année":
       sel_year = hm_col2.selectbox(
