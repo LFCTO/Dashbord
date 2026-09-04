@@ -607,6 +607,7 @@ if not df_hist.empty:
           plot_bgcolor="#161616",
           paper_bgcolor="#0E1117",
       )
+      fig.update_layout(showlegend=False)
       st.plotly_chart(fig_hm, use_container_width=True)
 
     elif granularity == "Tous les mois de l'année":
