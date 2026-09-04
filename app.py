@@ -16,7 +16,8 @@ import urllib.parse
 st.set_page_config(page_title="Analytics MT5 Multi-Comptes", layout="wide")
 st.title("📊 Dashboard Quantitatif Avancé Multi-Comptes MT5")
 
-COMMON_PATH = os.path.expandvars(r"%APPDATA%\MetaQuotes\Terminal\Common\Files")
+# Sur Streamlit Cloud, les fichiers du repo sont dans le dossier courant
+COMMON_PATH = "./"
 
 # ------------------------------------------------------------------
 # CONFIGURATION DES COMPTES (Dates de début et Capitaux Initiaux)
