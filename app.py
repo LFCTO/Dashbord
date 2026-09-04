@@ -15,17 +15,14 @@ import urllib.parse
 
 st.set_page_config(page_title="Analytics MT5 Multi-Comptes", layout="wide")
 st.title("📊 Dashboard Quantitatif Avancé Multi-Comptes MT5")
-st.title("📊 Dashboard Quantitatif Avancé Multi-Comptes MT5")
 
 # --- PROTECTION PAR MOT DE PASSE ---
 password = st.text_input("Mot de passe requis pour accéder au dashboard :", type="password")
 
-if password != "MonMotDePasse123":  # Tu changes ce texte par le mot de passe de ton choix
+if password != "20032026":  # Tu changes ce texte par le mot de passe de ton choix
     st.warning("Veuillez entrer le mot de passe pour afficher le contenu.")
     st.stop()
 
-# Sur Streamlit Cloud, les fichiers du repo sont dans le dossier courant
-COMMON_PATH = "./"
 # Sur Streamlit Cloud, les fichiers du repo sont dans le dossier courant
 COMMON_PATH = "./"
 
